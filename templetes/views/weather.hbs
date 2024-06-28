@@ -43,7 +43,7 @@
 
         
 
-         const getCurrentDay = ()=> {
+         {{!-- const getCurrentDay = ()=> {
             var weekday = new Array(7);
             weekday[0] = "SUN";
             weekday[1] = "MON";
@@ -59,8 +59,25 @@
             let day = weekday[currentTime.getDay()];
 
             day.innerText = days;
+        }; --}}
+        {{!-- getCurrentDay(); --}}
+
+
+{{!-- CODE FOR DYMANIC DATE AND DAY --}}
+        const getCurrentDayAndDate = () => {
+            const weekday = ["SUN", "MON", "TUE", "WED", "THU", "FRI", "SAT"];
+            const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            let currentTime = new Date();
+            let day = weekday[currentTime.getDay()];
+            let date = currentTime.getDate();
+            let month = months[currentTime.getMonth()];
+
+            document.getElementById('day').innerText = day;
+            document.getElementById('today_date').innerText = `${date} ${month}`;
         };
-        getCurrentDay();
+
+        document.addEventListener("DOMContentLoaded", getCurrentDayAndDate);
     </script>
 </body>
 </html>
